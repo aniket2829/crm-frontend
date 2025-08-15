@@ -53,8 +53,6 @@ export default function Navigation({ children }: NavigationProps) {
   const handleLogout = async () => {
     console.log('Starting logout process...')
     logout();
-    // Add a small delay to ensure state is cleared
-    await new Promise(resolve => setTimeout(resolve, 100));
     console.log('Redirecting to login...')
     // Use Next.js router instead of window.location
     router.push("/login");

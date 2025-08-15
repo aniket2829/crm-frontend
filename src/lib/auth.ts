@@ -101,8 +101,7 @@ export const useAuth = create<AuthState>()(
         // Clear all auth state
         set({ 
           user: null, 
-          isAuthenticated: false,
-          isInitialized: false
+          isAuthenticated: false
         })
         console.log('Logout complete')
       },
@@ -120,12 +119,6 @@ export const useAuth = create<AuthState>()(
         user: state.user, 
         isAuthenticated: state.isAuthenticated 
       }),
-      // Skip hydration for isInitialized to prevent mismatch
-      onRehydrateStorage: () => (state) => {
-        if (state) {
-          state.isInitialized = false
-        }
-      }
     }
   )
 )
